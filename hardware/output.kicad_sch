@@ -1703,17 +1703,18 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Triac_Thyristor:BT136-500"
+		(symbol "Triac_Thyristor:Z0103MN"
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Q"
-				(at 5.08 1.905 0)
+			(property "Reference" "D"
+				(at 3.175 0.635 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -1723,8 +1724,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "BT136-500"
-				(at 5.08 0 0)
+			(property "Value" "Z0103MN"
+				(at 3.175 -1.27 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -1734,33 +1735,8 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-				(at 5.08 -1.905 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(justify left)
-				)
-			)
-			(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-				(at 0 0 0)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+				(at 19.05 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -1770,7 +1746,18 @@
 					)
 				)
 			)
-			(property "ki_keywords" "Triac"
+			(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+				(at 3.81 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1781,7 +1768,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "TO?220*"
+			(property "ki_keywords" "4Q Triac"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1792,7 +1779,18 @@
 					)
 				)
 			)
-			(symbol "BT136-500_0_1"
+			(property "ki_fp_filters" "SOT*223*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Z0103MN_0_1"
 				(polyline
 					(pts
 						(xy -2.54 1.27) (xy 2.54 1.27)
@@ -1854,14 +1852,14 @@
 					)
 				)
 			)
-			(symbol "BT136-500_1_1"
+			(symbol "Z0103MN_1_1"
 				(pin passive line
 					(at 0 -3.81 90)
 					(length 2.54)
 					(name "A1"
 						(effects
 							(font
-								(size 0.635 0.635)
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -1879,7 +1877,7 @@
 					(name "A2"
 						(effects
 							(font
-								(size 0.635 0.635)
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -1897,11 +1895,30 @@
 					(name "G"
 						(effects
 							(font
-								(size 0.635 0.635)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.54)
+					(hide yes)
+					(name "A4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3027,6 +3044,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 72.39) (xy 40.64 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f7ebae0-5150-4c00-82c7-88bb131651df")
+	)
+	(wire
+		(pts
 			(xy 162.56 72.39) (xy 163.83 72.39)
 		)
 		(stroke
@@ -3094,6 +3121,16 @@
 			(type default)
 		)
 		(uuid "4806ca2a-4321-4c63-aa9c-85d08fd5d431")
+	)
+	(wire
+		(pts
+			(xy 62.23 158.75) (xy 58.42 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "492d4da6-1a6b-45e8-a672-892314c67cec")
 	)
 	(wire
 		(pts
@@ -3907,6 +3944,16 @@
 	)
 	(wire
 		(pts
+			(xy 58.42 158.75) (xy 58.42 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "946a9ee8-6e2d-4268-838a-dc30579c0665")
+	)
+	(wire
+		(pts
 			(xy 184.15 44.45) (xy 212.09 44.45)
 		)
 		(stroke
@@ -4364,6 +4411,16 @@
 			(type default)
 		)
 		(uuid "cb06ae83-349e-43e5-9848-6ac8005203c4")
+	)
+	(wire
+		(pts
+			(xy 40.64 72.39) (xy 40.64 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbaa54c8-e2e4-4ca6-a41f-5b20a9fd4821")
 	)
 	(wire
 		(pts
@@ -5093,7 +5150,7 @@
 			)
 		)
 	)
-	(label "24VAC2"
+	(label "24VAC2_OUT"
 		(at 233.68 127 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5646,100 +5703,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Triac_Thyristor:BT136-500")
-		(at 170.18 113.03 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "01d09055-88cd-4f0f-9451-b5ca28dda845")
-		(property "Reference" "Q8"
-			(at 173.99 112.3441 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BT136-500"
-			(at 173.99 114.8841 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 175.26 114.935 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-			(at 170.18 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-			(at 170.18 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7adb7fd2-4906-4d9b-97c3-a045040d36fd")
-		)
-		(pin "3"
-			(uuid "7d3a02ef-13b0-4582-8814-fcebf87c7ae3")
-		)
-		(pin "2"
-			(uuid "ca7c08b8-3052-4fa4-8f3e-214e07bce3d7")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
-					(reference "Q8")
-					(unit 1)
-				)
-			)
-			(project "output"
-				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
-					(reference "Q8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Relay_SolidState:FODM3053")
 		(at 142.24 24.13 0)
 		(unit 1)
@@ -5828,6 +5791,94 @@
 			(project "output"
 				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
 					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Triac_Thyristor:Z0103MN")
+		(at 170.18 24.13 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "06bcd896-ac3c-4625-9140-64daa15a12ba")
+		(property "Reference" "D2"
+			(at 173.99 23.4441 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Z0103MN"
+			(at 173.99 25.9841 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+			(at 189.23 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+			(at 173.99 16.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
+			(at 170.18 24.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ddb7a730-a231-4fe9-830b-f435e525f5b8")
+		)
+		(pin "2"
+			(uuid "d729f3b8-5081-4244-989c-2ce17f42749e")
+		)
+		(pin "3"
+			(uuid "dd255e19-8959-4b28-8944-595b95cc6a88")
+		)
+		(pin "4"
+			(uuid "c758b759-8f7e-4356-9190-c1cf3ec1691f")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -6342,100 +6393,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Triac_Thyristor:BT136-500")
-		(at 170.18 36.83 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1925b3ae-c949-4f0d-bed7-15bdf514f68a")
-		(property "Reference" "Q2"
-			(at 173.99 36.1441 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BT136-500"
-			(at 173.99 38.6841 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 175.26 38.735 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-			(at 170.18 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-			(at 170.18 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e339b0fe-7038-4ff7-bc5a-51f5adee9541")
-		)
-		(pin "3"
-			(uuid "d0ffe38e-d77f-46a2-b7ff-249e9f9e0132")
-		)
-		(pin "2"
-			(uuid "92b24413-2fa9-4d63-98d3-961142b4a660")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
-					(reference "Q2")
-					(unit 1)
-				)
-			)
-			(project "output"
-				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
-					(reference "Q2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 124.46 102.87 90)
 		(unit 1)
@@ -6609,100 +6566,6 @@
 			(project "output"
 				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
 					(reference "U6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Triac_Thyristor:BT136-500")
-		(at 170.18 49.53 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2baf5a10-6799-4728-af1e-f59d7ddab200")
-		(property "Reference" "Q3"
-			(at 173.99 48.8441 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BT136-500"
-			(at 173.99 51.3841 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 175.26 51.435 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-			(at 170.18 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-			(at 170.18 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "98e9d70c-f0c0-4115-af66-da4d5af178b7")
-		)
-		(pin "3"
-			(uuid "e8cb4325-d669-4711-bd79-dd2185ed4e0a")
-		)
-		(pin "2"
-			(uuid "1013a5ea-3067-4055-b0dc-67a46dc873fd")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
-					(reference "Q3")
-					(unit 1)
-				)
-			)
-			(project "output"
-				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
-					(reference "Q3")
 					(unit 1)
 				)
 			)
@@ -6973,100 +6836,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Triac_Thyristor:BT136-500")
-		(at 170.18 87.63 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3469d9d7-3203-4b84-aa1b-a71669dad218")
-		(property "Reference" "Q6"
-			(at 173.99 86.9441 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BT136-500"
-			(at 173.99 89.4841 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 175.26 89.535 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-			(at 170.18 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-			(at 170.18 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c5827fb9-1f59-4610-ac73-18328d740c31")
-		)
-		(pin "3"
-			(uuid "602b3963-ce03-45ac-b2fe-f8d8a6f4b990")
-		)
-		(pin "2"
-			(uuid "987cca93-e3b9-4937-9400-b235c277251a")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
-					(reference "Q6")
-					(unit 1)
-				)
-			)
-			(project "output"
-				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
-					(reference "Q6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
 		(at 189.23 36.83 90)
 		(unit 1)
@@ -7231,6 +7000,84 @@
 			(project "output"
 				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
 					(reference "R18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 40.64 80.01 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3cdcb3ee-245c-40ce-a8f9-c1388a7bd1c8")
+		(property "Reference" "#PWR023"
+			(at 40.64 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 40.64 85.09 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 40.64 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 40.64 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d8bb3a01-8833-4784-833e-f51503807928")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -7630,6 +7477,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Triac_Thyristor:Z0103MN")
+		(at 170.18 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4d95beb4-1ba5-43f1-bc72-b2f89fbbf909")
+		(property "Reference" "D4"
+			(at 173.99 48.8441 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Z0103MN"
+			(at 173.99 51.3841 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+			(at 189.23 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+			(at 173.99 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
+			(at 170.18 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d9852369-ca6c-4f2c-98a5-ec5d9f0d637f")
+		)
+		(pin "2"
+			(uuid "0b6624d9-a0c0-4a0d-9a5a-0ca5eba09635")
+		)
+		(pin "3"
+			(uuid "ce6e2d3d-1566-4d30-8ca0-6ed3446b5f37")
+		)
+		(pin "4"
+			(uuid "362e5a8a-f470-4294-98a8-ac0888554e95")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "D4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 158.75 72.39 90)
 		(unit 1)
@@ -7793,194 +7728,6 @@
 			(project "output"
 				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
 					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Triac_Thyristor:BT136-500")
-		(at 170.18 62.23 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6aeaffa2-2d0f-4f9a-81a1-766f78ef9e10")
-		(property "Reference" "Q4"
-			(at 173.99 61.5441 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BT136-500"
-			(at 173.99 64.0841 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 175.26 64.135 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-			(at 170.18 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-			(at 170.18 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9b8b1656-0745-4c1b-abff-b0bc90555d43")
-		)
-		(pin "3"
-			(uuid "ae7f2b41-cabb-41ab-88d1-33283a339f24")
-		)
-		(pin "2"
-			(uuid "701851c4-a2d9-4e91-9ad3-de461807d930")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
-					(reference "Q4")
-					(unit 1)
-				)
-			)
-			(project "output"
-				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
-					(reference "Q4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Triac_Thyristor:BT136-500")
-		(at 170.18 74.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6c51fe6f-0b50-43f1-a9dc-71a296290e84")
-		(property "Reference" "Q5"
-			(at 173.99 74.2441 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BT136-500"
-			(at 173.99 76.7841 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 175.26 76.835 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-			(at 170.18 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-			(at 170.18 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5e9fc815-a1b6-43f6-946d-5e25acf7e97d")
-		)
-		(pin "3"
-			(uuid "b757c5d0-9f83-41ad-a6e0-17db66c25999")
-		)
-		(pin "2"
-			(uuid "2a039119-3684-4778-b280-b991cf732cf3")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
-					(reference "Q5")
-					(unit 1)
-				)
-			)
-			(project "output"
-				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
-					(reference "Q5")
 					(unit 1)
 				)
 			)
@@ -9360,8 +9107,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Triac_Thyristor:BT136-500")
-		(at 170.18 24.13 0)
+		(lib_id "Triac_Thyristor:Z0103MN")
+		(at 170.18 74.93 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9370,9 +9117,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "a0bc5d23-d541-435c-a521-64ce419f9da8")
-		(property "Reference" "Q1"
-			(at 173.99 23.4441 0)
+		(uuid "a46f1c0a-7540-4e94-b077-a63d5ab675ea")
+		(property "Reference" "D6"
+			(at 173.99 74.2441 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9382,8 +9129,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BT136-500"
-			(at 173.99 25.9841 0)
+		(property "Value" "Z0103MN"
+			(at 173.99 76.7841 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9393,21 +9140,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 175.26 26.035 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-			(at 170.18 24.13 0)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+			(at 189.23 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9415,11 +9149,21 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-			(at 170.18 24.13 0)
+		(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+			(at 173.99 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
+			(at 170.18 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9430,24 +9174,21 @@
 			)
 		)
 		(pin "1"
-			(uuid "ab81aca2-b8a2-4114-bb4b-40408115a82d")
-		)
-		(pin "3"
-			(uuid "df2f351c-265d-4679-9b9c-7fa70c1b08ec")
+			(uuid "9ab8bfb6-3090-4e7f-b54d-8d87966f1573")
 		)
 		(pin "2"
-			(uuid "7801d25e-fb0e-41cc-be54-db350ee7f33b")
+			(uuid "fe10f92c-0deb-4cef-819e-0353704d405f")
+		)
+		(pin "3"
+			(uuid "02957670-89b2-479f-8c37-85352fc8ccf6")
+		)
+		(pin "4"
+			(uuid "5dfc619c-d166-4568-9b62-28f0835adfb7")
 		)
 		(instances
 			(project "hw-controller"
 				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
-					(reference "Q1")
-					(unit 1)
-				)
-			)
-			(project "output"
-				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
-					(reference "Q1")
+					(reference "D6")
 					(unit 1)
 				)
 			)
@@ -9618,6 +9359,182 @@
 			(project "output"
 				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
 					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Triac_Thyristor:Z0103MN")
+		(at 170.18 36.83 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c7c960c7-8f46-4882-9e3a-a04c38d2537e")
+		(property "Reference" "D3"
+			(at 173.99 36.1441 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Z0103MN"
+			(at 173.99 38.6841 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+			(at 189.23 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+			(at 173.99 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
+			(at 170.18 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9e54b4e7-2ec0-47cd-89b7-5e2b5fc32ca5")
+		)
+		(pin "2"
+			(uuid "2ffed56d-dd24-49c5-84fa-f912a20110d6")
+		)
+		(pin "3"
+			(uuid "4d432b64-d62f-4368-9445-7952eb2912b5")
+		)
+		(pin "4"
+			(uuid "02049f54-0f5f-4104-aee2-7ccab027d73e")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Triac_Thyristor:Z0103MN")
+		(at 170.18 100.33 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c8027418-9332-4cef-8d64-994dd0556fd6")
+		(property "Reference" "D8"
+			(at 173.99 99.6441 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Z0103MN"
+			(at 173.99 102.1841 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+			(at 189.23 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+			(at 173.99 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
+			(at 170.18 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9f0ef3df-a9b8-4cc8-9348-fcb81430281a")
+		)
+		(pin "2"
+			(uuid "ba63e3b0-437c-416c-9e1e-5e8555f662b1")
+		)
+		(pin "3"
+			(uuid "91dfb390-e81e-410e-8411-f0d7236d1cce")
+		)
+		(pin "4"
+			(uuid "978c7ff0-345d-4a42-ae46-47c30b17d9fe")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "D8")
 					(unit 1)
 				)
 			)
@@ -9879,6 +9796,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Triac_Thyristor:Z0103MN")
+		(at 170.18 113.03 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dab25e3c-1e9c-48f6-98fe-f9194925d989")
+		(property "Reference" "D9"
+			(at 173.99 112.3441 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Z0103MN"
+			(at 173.99 114.8841 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+			(at 189.23 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+			(at 173.99 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
+			(at 170.18 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7807b64e-c9df-437f-b3c4-2fe6dbcfd03b")
+		)
+		(pin "2"
+			(uuid "217a296c-fc60-4144-b881-1bd3f3a5835f")
+		)
+		(pin "3"
+			(uuid "ec1a2282-63ce-4783-96b1-46f9437b50fd")
+		)
+		(pin "4"
+			(uuid "8299aa7f-20f3-4751-83b0-ee71c9f909a6")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "D9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 189.23 49.53 90)
 		(unit 1)
@@ -9958,6 +9963,84 @@
 			(project "output"
 				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
 					(reference "R31")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 58.42 165.1 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dc2b7c26-8403-4f07-9ffd-609bed13aceb")
+		(property "Reference" "#PWR033"
+			(at 58.42 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 58.42 170.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 58.42 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 58.42 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1e3d51c6-360c-4771-b541-98db3ed66887")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -10128,6 +10211,182 @@
 			(project "output"
 				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
 					(reference "R9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Triac_Thyristor:Z0103MN")
+		(at 170.18 87.63 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ecfefeeb-4cc9-4e1a-b107-7ce569e163b7")
+		(property "Reference" "D7"
+			(at 173.99 86.9441 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Z0103MN"
+			(at 173.99 89.4841 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+			(at 189.23 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+			(at 173.99 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
+			(at 170.18 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "06cd9c66-21c9-448a-b609-565c3cea8fc6")
+		)
+		(pin "2"
+			(uuid "4bc697fe-997c-49f0-bfd7-7ef00443d454")
+		)
+		(pin "3"
+			(uuid "4050c7c3-7ef4-4ed7-8641-7c472f8bfc67")
+		)
+		(pin "4"
+			(uuid "8921b87b-6a9b-41e4-a6ac-c181794db52d")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "D7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Triac_Thyristor:Z0103MN")
+		(at 170.18 62.23 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ee186cc2-7a3e-4008-9f2c-f2dc2bd89bc9")
+		(property "Reference" "D5"
+			(at 173.99 61.5441 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Z0103MN"
+			(at 173.99 64.0841 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223"
+			(at 189.23 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/resource/en/datasheet/z01.pdf"
+			(at 173.99 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "4Q Triac, 1A RMS, 600V VDRM, 3mA Igt, 7mA Ih, SOT-223"
+			(at 170.18 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "21bd42e0-1749-4940-a9ab-043823e8e1d4")
+		)
+		(pin "2"
+			(uuid "dbd88ea2-e7c0-4235-b684-ba3b2e831f89")
+		)
+		(pin "3"
+			(uuid "a0416fcb-2e71-471b-ac7c-5374e4a37d46")
+		)
+		(pin "4"
+			(uuid "167ceadf-058b-458a-86f1-be6d6f843b4d")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -10480,100 +10739,6 @@
 			(project "output"
 				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
 					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Triac_Thyristor:BT136-500")
-		(at 170.18 100.33 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f58e1343-9fdc-4f56-89b9-4d132c5752f0")
-		(property "Reference" "Q7"
-			(at 173.99 99.6441 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BT136-500"
-			(at 173.99 102.1841 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 175.26 102.235 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.micropik.com/PDF/BT136-600.pdf"
-			(at 170.18 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "4A RMS, 500V Off-State Voltage, Triac, TO-220"
-			(at 170.18 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "73fb4a5a-e1b4-4a18-b5e6-93d9c378d57a")
-		)
-		(pin "3"
-			(uuid "4762beae-683b-429f-ba1c-1598db272cd0")
-		)
-		(pin "2"
-			(uuid "c751979f-7d4d-4b5c-bb0d-188260341df9")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/1d7032ea-c802-4f71-b7f4-02078583571c"
-					(reference "Q7")
-					(unit 1)
-				)
-			)
-			(project "output"
-				(path "/2ae0120a-cc63-4b1f-8f67-f61803c3dee0"
-					(reference "Q7")
 					(unit 1)
 				)
 			)

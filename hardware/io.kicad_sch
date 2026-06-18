@@ -410,6 +410,254 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Sensor_Current:ACS725xLCTR-20AB"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 2.54 11.43 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "ACS725xLCTR-20AB"
+				(at 2.54 8.89 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+				(at 2.54 -8.89 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "http://www.allegromicro.com/~/media/Files/Datasheets/ACS725-Datasheet.ashx?la=en"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "±20A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-8"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "hall effect current monitor sensor isolated"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SOIC*3.9x4.9m*P1.27mm*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "ACS725xLCTR-20AB_0_1"
+				(rectangle
+					(start -7.62 7.62)
+					(end 7.62 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "ACS725xLCTR-20AB_1_1"
+				(pin passive line
+					(at -10.16 5.08 0)
+					(length 2.54)
+					(name "IP+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 5.08 0)
+					(length 2.54)
+					(hide yes)
+					(name "IP+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -5.08 0)
+					(length 2.54)
+					(name "IP-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -5.08 0)
+					(length 2.54)
+					(hide yes)
+					(name "IP-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -10.16 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -2.54 180)
+					(length 2.54)
+					(name "FILTER"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 10.16 0 180)
+					(length 2.54)
+					(name "VIOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 10.16 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Test-Points:TP"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -908,6 +1156,16 @@
 	)
 	(wire
 		(pts
+			(xy 233.68 99.06) (xy 241.3 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04a15036-f7f1-466d-8bc1-de50ac193ace")
+	)
+	(wire
+		(pts
 			(xy 107.95 72.39) (xy 115.57 72.39)
 		)
 		(stroke
@@ -1118,6 +1376,16 @@
 	)
 	(wire
 		(pts
+			(xy 220.98 101.6) (xy 220.98 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "31a353b8-7f50-4716-b806-c839588f280e")
+	)
+	(wire
+		(pts
 			(xy 68.58 113.03) (xy 72.39 113.03)
 		)
 		(stroke
@@ -1298,6 +1566,16 @@
 	)
 	(wire
 		(pts
+			(xy 186.69 93.98) (xy 198.12 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58476b24-5196-43bf-93f9-06885832f798")
+	)
+	(wire
+		(pts
 			(xy 68.58 153.67) (xy 72.39 153.67)
 		)
 		(stroke
@@ -1428,6 +1706,16 @@
 	)
 	(wire
 		(pts
+			(xy 208.28 109.22) (xy 208.28 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7878bdf7-fb82-4f4a-965f-187c3a4587da")
+	)
+	(wire
+		(pts
 			(xy 72.39 128.27) (xy 69.85 128.27)
 		)
 		(stroke
@@ -1468,6 +1756,16 @@
 	)
 	(wire
 		(pts
+			(xy 208.28 85.09) (xy 208.28 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82eb3864-f4b8-465a-a7d7-b24be91c4b20")
+	)
+	(wire
+		(pts
 			(xy 107.95 90.17) (xy 127 90.17)
 		)
 		(stroke
@@ -1498,6 +1796,16 @@
 	)
 	(wire
 		(pts
+			(xy 218.44 101.6) (xy 220.98 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "885f8b90-2b96-47d9-89fe-39a84dd5c045")
+	)
+	(wire
+		(pts
 			(xy 68.58 92.71) (xy 72.39 92.71)
 		)
 		(stroke
@@ -1525,6 +1833,16 @@
 			(type default)
 		)
 		(uuid "92a6e3d7-a773-4a47-836a-24de5c792625")
+	)
+	(wire
+		(pts
+			(xy 218.44 99.06) (xy 228.6 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "968fa897-a1bf-4dd3-9df5-bf81fbf82231")
 	)
 	(wire
 		(pts
@@ -1685,6 +2003,16 @@
 			(type default)
 		)
 		(uuid "b25e0295-b014-4b63-9c53-bb0b2e9a5937")
+	)
+	(wire
+		(pts
+			(xy 186.69 104.14) (xy 198.12 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b324307b-bbdf-45a1-bad9-d3a760da9939")
 	)
 	(wire
 		(pts
@@ -2146,6 +2474,54 @@
 		)
 		(uuid "fff8d2b1-a538-4776-8cf9-22ef4e431243")
 	)
+	(label "24VAC2_OUT"
+		(at 186.69 93.98 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "92960483-3608-4176-bee0-0fcf58ecbc88")
+		(property "Net Class" "Default"
+			(at 186.69 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+			)
+		)
+	)
+	(label "24VAC2"
+		(at 186.69 104.14 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e88fd3c8-c9b8-467b-85fb-fd4bdd1fa4b1")
+		(property "Net Class" "Default"
+			(at 186.69 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "LEDG_CH4"
 		(shape input)
 		(at 127 92.71 0)
@@ -2519,6 +2895,30 @@
 		(uuid "a4e34b6a-0de8-4390-b3c4-1d3d2c7283e9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 139.4799 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "ACS_ADC"
+		(shape input)
+		(at 241.3 99.06 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a4fb5ea6-6834-41fb-99ff-71ccf9d6726b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 252.4495 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3206,6 +3606,85 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "#PWR028")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 231.14 99.06 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0a5f49ea-e8ca-440d-8f5b-0f8240050bfc")
+		(property "Reference" "R22"
+			(at 231.14 99.06 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "33"
+			(at 231.14 96.52 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 0.762 0.762)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 231.14 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 231.14 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 231.14 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1b2334ea-5cda-4d93-933a-e54322fe181f")
+		)
+		(pin "2"
+			(uuid "80a86bda-18bf-413a-af00-56bdad86949c")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R22")
 					(unit 1)
 				)
 			)
@@ -4103,7 +4582,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 146.05 99.06 0)
 			(hide yes)
 			(show_name no)
@@ -4251,7 +4730,7 @@
 				)
 			)
 		)
-		(property "Value" "160"
+		(property "Value" "165"
 			(at 185.42 45.72 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4261,7 +4740,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 185.42 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -4634,7 +5113,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "551212a5-3996-4b7d-94cd-bbd5ab7e3c48")
-		(property "Reference" "TP6"
+		(property "Reference" "TP4"
 			(at 125.73 21.59 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4692,7 +5171,7 @@
 		(instances
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "TP6")
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -5796,6 +6275,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 208.28 113.03 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "90922bc3-0036-4440-9e8e-d5ef18f70bfc")
+		(property "Reference" "#PWR034"
+			(at 208.28 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 208.28 118.11 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 208.28 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "96619a79-79db-4e6c-8f21-121e485a753e")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 111.76 166.37 0)
 		(unit 1)
@@ -5904,7 +6461,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 146.05 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -6424,6 +6981,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 208.28 85.09 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "afdf0177-81d8-4335-898f-da2392b1ea8a")
+		(property "Reference" "#PWR036"
+			(at 208.28 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 208.28 80.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 208.28 85.09 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "35f73653-1869-42c7-94b8-2e0853178bb4")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "228EMVARGBFR:228EMVARGBFR")
 		(at 72.39 87.63 0)
 		(unit 1)
@@ -6688,7 +7322,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 146.05 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -6767,7 +7401,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 146.05 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -6925,7 +7559,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 146.05 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -7004,7 +7638,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 146.05 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -7083,7 +7717,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 146.05 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -7126,6 +7760,84 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "R57")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 220.98 113.03 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f24ce810-14a8-4fad-af68-f5410bc35500")
+		(property "Reference" "#PWR035"
+			(at 220.98 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 220.98 118.11 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 220.98 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 220.98 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 220.98 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ee1b0a06-9c8e-4da9-8008-9705138d005c")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -7205,6 +7917,108 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Sensor_Current:ACS725xLCTR-20AB")
+		(at 208.28 99.06 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f549c3cc-1be2-4621-ae05-e8b899469ba7")
+		(property "Reference" "U14"
+			(at 210.4233 86.36 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ACS725xLCTR-20AB"
+			(at 210.4233 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 210.82 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "http://www.allegromicro.com/~/media/Files/Datasheets/ACS725-Datasheet.ashx?la=en"
+			(at 208.28 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "±20A Bidirectional Hall-Effect Current Sensor, +3.3V supply, 66mV/A, SOIC-8"
+			(at 208.28 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "7"
+			(uuid "32344339-1ee2-484d-a219-16293034d608")
+		)
+		(pin "6"
+			(uuid "fca68fb3-4dd3-42ae-8c8d-8fd833f439f5")
+		)
+		(pin "8"
+			(uuid "250359df-b526-422e-a5f1-a7552a2ebb86")
+		)
+		(pin "1"
+			(uuid "b9803dbe-67fc-4622-b6b4-5d3cea82ae1a")
+		)
+		(pin "3"
+			(uuid "8828504a-8579-4f56-a841-ca19d54bcb2b")
+		)
+		(pin "2"
+			(uuid "e8a7c84b-79f7-4816-8a8b-255c9dc60e44")
+		)
+		(pin "5"
+			(uuid "041f4b8f-db77-408d-9f31-02a46c5bb6f0")
+		)
+		(pin "4"
+			(uuid "0efc5ca7-8c7b-4e6c-9c41-476dd26a5177")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "U14")
 					(unit 1)
 				)
 			)

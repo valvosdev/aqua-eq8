@@ -195,6 +195,7 @@
       ],
       "track_widths": [
         0.0,
+        0.6,
         1.0
       ],
       "tuning_pattern_settings": {
@@ -535,6 +536,9 @@
       ],
       "/24VAC2": [
         "Default"
+      ],
+      "/24VAC2_OUT": [
+        "Default"
       ]
     },
     "netclass_patterns": [
@@ -699,7 +703,7 @@
         "uuid": "31a4fc10-8d22-4d55-b241-0df09ac6a45b"
       }
     ],
-    "used_designators": "C20-22",
+    "used_designators": "#PWR34-36,U14,C23,R21-22,D10",
     "variants": []
   },
   "sheets": [
