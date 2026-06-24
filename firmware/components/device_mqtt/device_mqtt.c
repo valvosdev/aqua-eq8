@@ -132,8 +132,9 @@ esp_err_t device_mqtt_init(zone_controller_handle_t zone_engine)
     // Structure configuration blocks using modern structural group guidelines (mandatory since late v5.x)
     esp_mqtt_client_config_t mqtt_cfg = {
         .broker.address.uri = config.mqtt_url,
+        .network.reconnect_timeout_ms = 30000,
         // Optional Multi-Tenant Authentication Layer Mapping:
-        // .credentials.username = config.tenant_id,
+        //.credentials.username = config.tenant_id,
     };
 
     mqtt_client = esp_mqtt_client_init(&mqtt_cfg);

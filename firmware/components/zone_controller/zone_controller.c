@@ -31,6 +31,11 @@ struct zone_controller_ctx_t
     TaskHandle_t task_handle;
     bool running;
     uint32_t flash_timer_ticks;
+    int16_t feedback_fade_ticks;      // Counters for fading out green LED (25 ticks = 1 sec)
+    int8_t  feedback_blink_count;     // Counter for handling double blinks
+    int8_t  last_feedback_zone_idx;  
+    
+    
     zone_event_cb_t cb_on;
     zone_event_cb_t cb_off;
     zone_event_cb_t cb_master;
@@ -93,6 +98,36 @@ static void update_hardware_outputs(struct zone_controller_ctx_t *ctx)
                 } else if (ctx->zones[i].is_blinking) {
                     red_out = false;   // Relay remains open (closed valve) during delay windows
                     green_out = ((ctx->flash_timer_ticks / 3) % 2 == 0); // Green flashes at ~4Hz
+                }
+            }
+
+            if (i == ctx->last_feedback_zone_idx && !any_regular_zone_firing && !master_delay_sequence_active && !ctx->zones[i].is_active) {
+                
+                // A. Handle Activation Fade-Out Animation (2 Seconds)
+                if (ctx->feedback_fade_ticks > 0) {
+                    // Use a duty-cycle pattern over the 25Hz loops to fade out an standard on/off shift register channel
+                    uint8_t intensity = (ctx->feedback_fade_ticks * 10) / 50; 
+                    green_out = ((ctx->flash_timer_ticks % 10) < intensity);
+                    
+                    if (i == (uint8_t)ctx->active_master_idx) {
+                        ctx->feedback_fade_ticks--; // Tick down the countdown window
+                    } else {
+                        ctx->feedback_fade_ticks = 0; // Cancel if master state shifted midway
+                    }
+                }
+                
+                // B. Handle Deactivation Double Blink Animation
+                if (ctx->feedback_blink_count > 0) {
+                    // Alternate state cycles every 4 ticks (~160ms intervals)
+                    green_out = ((ctx->feedback_blink_count / 2) % 2 == 1);
+                    
+                    // Tick down every few loop sweeps to control the animation speed
+                    if (ctx->flash_timer_ticks % 4 == 0) {
+                        ctx->feedback_blink_count--;
+                        if (ctx->feedback_blink_count == 0) {
+                            ctx->last_feedback_zone_idx = -1; // Reset tracking pointer on complete
+                        }
+                    }
                 }
             }
 
@@ -177,20 +212,39 @@ esp_err_t zone_controller_set_master(zone_controller_handle_t handle, uint8_t ma
     ESP_RETURN_ON_FALSE(master_num <= TOTAL_ZONES, ESP_ERR_INVALID_ARG, TAG, "Master zone range validation error");
 
     if (xSemaphoreTake(ctx->mutex, portMAX_DELAY) == pdTRUE) {
-        // Update our new fast index tracker variable safely
+        
+        // Reset any leftover animation counters
+        ctx->feedback_fade_ticks = 0;
+        ctx->feedback_blink_count = 0;
+
         if (master_num == 0) {
-            ctx->active_master_idx = -1; // No master valve present
+            // TRIGGER DEACTIVATION: Double blink the Green LED on the channel that WAS the master
+            if (ctx->active_master_idx >= 0) {
+                ctx->last_feedback_zone_idx = ctx->active_master_idx;
+                ctx->feedback_blink_count = 8; // 8 edge transitions = 2 full on/off blinks
+            }
+            ctx->active_master_idx = -1; 
         } else {
-            ctx->active_master_idx = (int8_t)(master_num - 1); // Map human 1-8 down to array 0-7
+            // TRIGGER ACTIVATION: Set up a 2-second fade-out animation window (50 ticks @ 25Hz)
+            ctx->active_master_idx = (int8_t)(master_num - 1);
+            ctx->last_feedback_zone_idx = ctx->active_master_idx;
+            ctx->feedback_fade_ticks = 50; 
         }
 
         for (int i = 0; i < TOTAL_ZONES; i++) {
             ctx->zones[i].is_master = (master_num > 0 && i == (master_num - 1));
         }
-        ESP_LOGW(TAG, "System configuration updated: Channel %d is now Exclusive Master.", master_num);
-        if (master_num > 0 && ctx->cb_master) {
-            ctx->cb_master(master_num, ctx->user_ctx); // Clean 1-indexed execution matching fix
+        
+        if (master_num == 0) {
+            ESP_LOGW(TAG, "System configuration updated: Master channel has been fully DEINITIALISED.");
+        } else {
+            ESP_LOGW(TAG, "System configuration updated: Channel %d is now Exclusive Master.", master_num);
         }
+
+        if (ctx->cb_master) {
+            ctx->cb_master(master_num, ctx->user_ctx); 
+        }
+        
         xSemaphoreGive(ctx->mutex);
     }
     return ESP_OK;
@@ -217,18 +271,30 @@ esp_err_t zone_controller_set_master_delay(zone_controller_handle_t handle, uint
 void zone_controller_handle_button_event(zone_controller_handle_t handle, uint8_t button_index, adc_button_event_t event)
 {
     struct zone_controller_ctx_t *ctx = (struct zone_controller_ctx_t *)handle;
-    if (!ctx || button_index >= TOTAL_ZONES)
-        return;
+    if (!ctx || button_index >= TOTAL_ZONES) return;
 
-    // Direct interface maps perfectly into our refined thread-safe setters
-    if (event == BUTTON_SHORT_PRESS)
-    {
-        bool target_next_state = !ctx->zones[button_index].is_active && !ctx->zones[button_index].is_blinking;
-        zone_controller_set_zone(handle, button_index + 1, target_next_state);
-    }
-    else if (event == BUTTON_LONG_PRESS)
-    {
-        zone_controller_set_master(handle, button_index + 1);
+    if (xSemaphoreTake(ctx->mutex, portMAX_DELAY) == pdTRUE) {
+        if (event == BUTTON_SHORT_PRESS) {
+            bool target_next_state = !ctx->zones[button_index].is_active && !ctx->zones[button_index].is_blinking;
+            xSemaphoreGive(ctx->mutex); // Release early because set_zone takes its own mutex
+            zone_controller_set_zone(handle, button_index + 1, target_next_state);
+            return;
+        } 
+        else if (event == BUTTON_LONG_PRESS) {
+            uint8_t target_master;
+
+            if (ctx->zones[button_index].is_master) {
+                target_master = 0; // 0 means "No Master Valve Configured"
+                ESP_LOGW(TAG, "Button %d long-pressed while already Master. Deinitializing system master completely.", button_index + 1);
+            } else {
+                target_master = button_index + 1; // Set this channel as the new 1-indexed master
+            }
+            
+            xSemaphoreGive(ctx->mutex); // Release early because set_master takes its own mutex
+            zone_controller_set_master(handle, target_master);
+            return;
+        }
+        xSemaphoreGive(ctx->mutex);
     }
 }
 
@@ -252,6 +318,10 @@ esp_err_t zone_controller_init(const zone_controller_config_t *config, zone_cont
     ctx->running = true;
     ctx->active_master_idx = -1;
     ctx->global_master_delay_sec = 5; // Default 5 seconds
+
+    ctx->feedback_fade_ticks = 0;
+    ctx->feedback_blink_count = 0;
+    ctx->last_feedback_zone_idx = -1;
 
     ctx->mutex = xSemaphoreCreateMutex();
     if (!ctx->mutex)

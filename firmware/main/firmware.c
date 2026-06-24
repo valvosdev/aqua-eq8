@@ -102,8 +102,14 @@ static void wifi_and_prov_event_handler(void *arg, esp_event_base_t event_base, 
             esp_wifi_connect();
             break;
         case WIFI_EVENT_STA_DISCONNECTED:
-            ESP_LOGW(APP_TAG, "Wi-Fi link dropped. Reconnecting automatically...");
+            wifi_event_sta_disconnected_t *disconn = (wifi_event_sta_disconnected_t *)event_data;
+            ESP_LOGE(APP_TAG, "Wi-Fi disconnected. Reason code: %d", disconn->reason);
+            // Change Status LED to show error/reconnecting state
             device_status_set_state(global_status_engine, STATUS_STATE_WIFI_CONNECTED, false);
+            // Prevent spamming the router: Wait out a 3-second recovery backoff delay
+            vTaskDelay(pdMS_TO_TICKS(3000));
+
+            // Reconnect safely
             esp_wifi_connect();
             break;
         default:
@@ -330,6 +336,29 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &wifi_and_prov_event_handler, NULL));
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+
+    wifi_config_t current_wifi_cfg;
+    if (esp_wifi_get_config(WIFI_IF_STA, &current_wifi_cfg) == ESP_OK) {
+        
+        // 1. Set the minimum security threshold to standard WPA2
+        current_wifi_cfg.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
+        
+        // 2. CRITICAL FIX FOR MIXED MODE: Tell the ESP32-C3 to explicitly allow 
+        // WPA3-SAE transition capability if the AP offers it.
+        current_wifi_cfg.sta.sae_pwe_h2e = WPA3_SAE_PWE_BOTH; 
+        
+        // 3. Scan all available channels uniformly
+        current_wifi_cfg.sta.scan_method = WIFI_ALL_CHANNEL_SCAN;
+        current_wifi_cfg.sta.sort_method = WIFI_CONNECT_AP_BY_SIGNAL;
+        
+        // 4. Force PMF (Protected Management Frames) to Optional/Capable
+        current_wifi_cfg.sta.pmf_cfg.capable = true;
+        current_wifi_cfg.sta.pmf_cfg.required = false;
+        
+        ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &current_wifi_cfg));
+        ESP_LOGI(APP_TAG, "WPA2/WPA3 Mixed Transition Mode profile successfully applied.");
+    }
+
     ESP_ERROR_CHECK(esp_wifi_start());
 
     network_prov_mgr_config_t prov_config = {
@@ -339,7 +368,6 @@ void app_main(void)
             .user_data = NULL}};
     ESP_ERROR_CHECK(network_prov_mgr_init(prov_config));
 
-    
     bool provisioned = false;
     ESP_ERROR_CHECK(network_prov_mgr_is_wifi_provisioned(&provisioned));
 
