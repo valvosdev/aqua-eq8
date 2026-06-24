@@ -35,6 +35,24 @@ esp_err_t zone_controller_deinit(zone_controller_handle_t handle);
  */
 void zone_controller_handle_button_event(zone_controller_handle_t handle, uint8_t button_index, adc_button_event_t event);
 
+/**
+ * @brief Thread-safe API to explicitly drive a channel state (used by MQTT/Timers)
+ * @note 1-based indices (1 to 8) to align cleanly with your MQTT spec.
+ */
+esp_err_t zone_controller_set_zone(zone_controller_handle_t handle, uint8_t zone_num, bool state);
+
+/**
+ * @brief Sets a specific channel as the master, clearing out old ones.
+ * @note Accepts 0 for "None", or 1 to 8.
+ */
+esp_err_t zone_controller_set_master(zone_controller_handle_t handle, uint8_t master_num);
+
+/**
+ * @brief Configures the sequence pre-activation delay time.
+ */
+esp_err_t zone_controller_set_master_delay(zone_controller_handle_t handle, uint32_t delay_seconds);
+
+
 #ifdef __cplusplus
 }
 #endif
