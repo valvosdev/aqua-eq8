@@ -6,7 +6,8 @@ idf_component_register(SRCS "firmware.c"
                            zone_controller 
                            device_status 
                            device_config   
-                           device_mqtt     
+                           device_mqtt   
+                           device_schedule  
                            nvs_flash 
                            network_provisioning 
                            esp_wifi

@@ -6,6 +6,7 @@
 #include "device_config.h"
 #include "zone_controller.h"
 #include "device_mqtt.h"
+#include "device_schedule.h"
 
 static const char *TAG = "device_mqtt";
 
@@ -36,11 +37,12 @@ static void parse_tenant_mqtt_message(const char *topic, int topic_len, const ch
         return;
     }
 
-    char zone_pattern[256]; // Increased from 128 to 256 to handle absolute worst-case lengths cleanly
+    char zone_pattern[256]; 
     snprintf(zone_pattern, sizeof(zone_pattern), "tenant/%s/device/%s/zone/", conf.tenant_id, conf.device_id);
 
-
+    // ====================================================================
     // 1. Check Zone Control Endpoint: "tenant/<tenant_id>/device/<device_id>/zone/+/set"
+    // ====================================================================
     if (strncmp(topic_buf, zone_pattern, strlen(zone_pattern)) == 0) {
         int zone_num = atoi(topic_buf + strlen(zone_pattern));
         
@@ -56,7 +58,9 @@ static void parse_tenant_mqtt_message(const char *topic, int topic_len, const ch
             ESP_LOGE(TAG, "Tenant attempted to issue a command out of legal zone index bounds: %d", zone_num);
         }
     }
+    // ====================================================================
     // 2. Check Master Overwrite Endpoint: "tenant/<tenant_id>/device/<device_id>/master/set"
+    // ====================================================================
     else if (strcmp(topic_buf, topic_master_set) == 0) {
         char payload_buf[16] = {0};
         int length = (data_len < sizeof(payload_buf) - 1) ? data_len : sizeof(payload_buf) - 1;
@@ -70,6 +74,39 @@ static void parse_tenant_mqtt_message(const char *topic, int topic_len, const ch
             // Save the dynamic master channel runtime override into NVS permanently
             conf.master_ch = target_master;
             device_config_save_to_nvs(&conf);
+        }
+    }
+    // ====================================================================
+    // ADDED HERE: 3. Check Schedule Configuration Endpoint: ".../schedule/<0-3>/set"
+    // ====================================================================
+    else {
+        char sched_base_pattern[256];
+        snprintf(sched_base_pattern, sizeof(sched_base_pattern), "tenant/%s/device/%s/schedule/", conf.tenant_id, conf.device_id);
+
+        if (strncmp(topic_buf, sched_base_pattern, strlen(sched_base_pattern)) == 0) {
+            // Extract the schedule profile index digit sitting directly after the string prefix block
+            int sched_index = atoi(topic_buf + strlen(sched_base_pattern));
+
+            if (sched_index >= 0 && sched_index < 4) { // MAX_SCHEDULES is 4 (0 to 3)
+                // Locate the exact matching path tail string suffix using basic pointer offset calculations
+                const char *action_suffix = topic_buf + strlen(sched_base_pattern);
+                while (*action_suffix != '/' && *action_suffix != '\0') {
+                    action_suffix++; // Step past the numeric index integer character
+                }
+
+                // A. Match Route Pattern: "tenant/<tenant_id>/device/<device_id>/schedule/<index>/set"
+                if (strcmp(action_suffix, "/set") == 0) {
+                    ESP_LOGI(TAG, "MQTT Command: Modifying Schedule Configuration profile slot %d...", sched_index + 1);
+                    device_schedule_update_from_json(sched_index, data, data_len);
+                }
+                // B. Match Route Pattern: "tenant/<tenant_id>/device/<device_id>/schedule/<index>/start"
+                else if (strcmp(action_suffix, "/start") == 0) {
+                    ESP_LOGW(TAG, "MQTT Command: Remotely starting Schedule sequence profile slot %d!", sched_index + 1);
+                    device_schedule_start_by_index(sched_index);
+                }
+            } else {
+                ESP_LOGE(TAG, "Tenant requested an invalid out-of-bounds schedule array index: %d", sched_index);
+            }
         }
     }
 
@@ -89,9 +126,25 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
             ESP_LOGI(TAG, "Secure cloud connection confirmed. Dispatching topic dynamic bindings...");
 
             if (topic_zone_ctrl && topic_master_set) {
+                // Subscribe to zone and master commands
                 esp_mqtt_client_subscribe(current_client, topic_zone_ctrl, 1);
                 esp_mqtt_client_subscribe(current_client, topic_master_set, 1);
-                ESP_LOGI(TAG, "Listening on paths:\n -> %s\n -> %s", topic_zone_ctrl, topic_master_set);
+                
+                // --- FIX: Load configuration from NVS inside this function's scope ---
+                device_runtime_config_t conf;
+                if (device_config_load_from_nvs(&conf) == ESP_OK) {
+                    
+                    char topic_sched_wildcard[256]; // Ensure buffer is large enough
+                    snprintf(topic_sched_wildcard, sizeof(topic_sched_wildcard), 
+                             "tenant/%s/device/%s/schedule/#", conf.tenant_id, conf.device_id);
+                    
+                    esp_mqtt_client_subscribe(current_client, topic_sched_wildcard, 1);
+                    
+                    ESP_LOGI(TAG, "Listening on paths:\n -> %s\n -> %s\n -> %s", 
+                             topic_zone_ctrl, topic_master_set, topic_sched_wildcard);
+                } else {
+                    ESP_LOGE(TAG, "Failed to load NVS config for wildcard subscription.");
+                }
             }
             break;
 

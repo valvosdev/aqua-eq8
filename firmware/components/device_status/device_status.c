@@ -101,9 +101,9 @@ static void status_engine_task(void *pvParameters)
             if (btn_hold_time_ms >= RESET_LONG_PRESS_MS && !ctx->in_factory_reset_ui)
             {
                 ctx->in_factory_reset_ui = true;
-                ESP_LOGE(TAG, "!!! FACTORY RESET TRIGGERED !!!");
-                if (ctx->cb.on_factory_reset)
-                    ctx->cb.on_factory_reset();
+                ESP_LOGE(TAG, "!!! VERY VERY LONG PRESS TRIGGERED !!!");
+                if (ctx->cb.on_very_very_long_press)
+                    ctx->cb.on_very_very_long_press();
             }
         }
         else
@@ -111,16 +111,16 @@ static void status_engine_task(void *pvParameters)
             if (btn_hold_time_ms >= 50 && btn_hold_time_ms < 1500)
             {
                 ESP_LOGW(TAG, "Short press: Enabling BLE pairing window (10 mins)");
-                ble_pairing_active = true;
-                ble_pairing_timer_ms = 0;
                 device_status_set_state(ctx, STATUS_STATE_BLE_ADVERTISING, true);
-                if (ctx->cb.on_ble_pairing_start)
-                    ctx->cb.on_ble_pairing_start();
+                if (ctx->cb.on_short_press)
+                    ctx->cb.on_short_press();
             }
             btn_hold_time_ms = 0;
         }
+       
 
-        // --- 2. PAIRING TIMEOUT COUNTER ---
+        // --- 2. PAIRING TIMEOUT COUNTER --- //TODO: move this from here, this is business logics related to button press. 
+        // TODO: add a long press callback and move this to the long press call back 
         if (ble_pairing_active)
         {
             ble_pairing_timer_ms += BTN_POLL_INTERVAL_MS;

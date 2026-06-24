@@ -17,6 +17,7 @@
 #include "device_status.h"
 #include "device_config.h"
 #include "device_mqtt.h"
+#include "device_schedule.h"
 
 #define BTNS_PIN GPIO_NUM_0
 #define LATCH GPIO_NUM_5
@@ -123,6 +124,7 @@ static void wifi_and_prov_event_handler(void *arg, esp_event_base_t event_base, 
 
         device_status_set_state(global_status_engine, STATUS_STATE_BOOTING, false);
         device_status_set_state(global_status_engine, STATUS_STATE_WIFI_CONNECTED, true);
+        device_schedule_sync_network_time();
         device_runtime_config_t active_net_conf;
         if (device_config_load_from_nvs(&active_net_conf) == ESP_OK)
         {
@@ -204,6 +206,18 @@ void app_button_bridge_handler(uint8_t button_index, adc_button_event_t event, v
     if (engine)
     {
         zone_controller_handle_button_event(engine, button_index, event);
+    }
+}
+
+void start_first_schedule(void) {
+    // SHORT PRESS ON CONTROL/STATUS BUTTON TRIGGERS FIRST SCHEDULE PROFILE RUN
+    ESP_LOGW(APP_TAG, "Control button short-pressed. Running the first schedule sequence sequence...");
+    
+    // Executes the default 7-minute factory sequence automatically
+    esp_err_t err = device_schedule_start_by_index(0); 
+    if (err == ESP_ERR_INVALID_STATE) {
+        ESP_LOGE(APP_TAG, "A sequence is already active. Stopping execution task.");
+        device_schedule_stop_current(); // Toggles off if double clicked
     }
 }
 
@@ -304,9 +318,12 @@ void app_main(void)
         .pin_green = STATUS_GREEN,
         .pin_blue = STATUS_BLUE,
         .callbacks = {
-            .on_ble_pairing_start = pairing_mode_started,
-            .on_factory_reset = factory_reset_wiping_sequence}};
+            .on_short_press = start_first_schedule,
+            .on_very_very_long_press = factory_reset_wiping_sequence}};
     ESP_ERROR_CHECK(device_status_init(&status_cfg, &global_status_engine));
+
+    
+    ESP_ERROR_CHECK(device_schedule_init(global_zone_engine));
 
     // CALL THE COMPONENT METHOD TO READ FLASH HERE:
     if (device_config_load_from_nvs(&system_conf) == ESP_OK)
