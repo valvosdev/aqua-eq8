@@ -3239,7 +3239,7 @@
 				)
 			)
 		)
-		(property "Value" "470"
+		(property "Value" "150"
 			(at 243.84 53.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3249,7 +3249,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 243.84 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -3292,85 +3292,6 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "R62")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 118.11 30.48 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "02c06314-3ca6-4a6b-9bb5-80919e73c608")
-		(property "Reference" "R45"
-			(at 118.11 30.48 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 118.11 33.02 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 118.11 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 118.11 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 118.11 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6a756875-26e6-4ed1-8482-06f061e61ca6")
-		)
-		(pin "2"
-			(uuid "8c396814-5487-413d-87a5-bb43b053dd54")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R45")
 					(unit 1)
 				)
 			)
@@ -3456,7 +3377,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 118.11 175.26 90)
+		(at 66.04 92.71 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3464,9 +3385,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "05f2d065-1cca-46b8-93cb-0eb5709e6cf1")
-		(property "Reference" "R52"
-			(at 118.11 175.26 90)
+		(uuid "04df8001-e956-4d50-bb44-e69f5dbfa31b")
+		(property "Reference" "R25"
+			(at 66.04 92.71 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3475,8 +3396,8 @@
 				)
 			)
 		)
-		(property "Value" "1k"
-			(at 118.11 177.8 90)
+		(property "Value" "470"
+			(at 66.04 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3485,8 +3406,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 118.11 175.26 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 66.04 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3497,7 +3418,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 118.11 175.26 0)
+			(at 66.04 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3508,7 +3429,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 118.11 175.26 0)
+			(at 66.04 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3519,15 +3440,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "82175811-8212-4590-9f4b-092ae35f6c18")
+			(uuid "ee353762-a11d-471a-a0eb-6bb5ed10803b")
 		)
 		(pin "2"
-			(uuid "f1eea2a5-c861-4ed5-a16a-e8d60f6fe677")
+			(uuid "a728a50e-c2c5-4dae-90c5-15d86b81c9d8")
 		)
 		(instances
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R52")
+					(reference "R25")
 					(unit 1)
 				)
 			)
@@ -3613,6 +3534,85 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
+		(at 66.04 52.07 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "08964547-f15e-4861-8fc2-87dc567c0db8")
+		(property "Reference" "R23"
+			(at 66.04 52.07 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 66.04 49.53 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 66.04 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 66.04 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 66.04 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a52fab83-f973-412b-93ed-edce289b1efa")
+		)
+		(pin "2"
+			(uuid "805a9b7e-30e6-46fd-a303-0ae3ede5f46e")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
 		(at 231.14 99.06 90)
 		(unit 1)
 		(body_style 1)
@@ -3685,85 +3685,6 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "R22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 118.11 153.67 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0acc516e-f854-4723-b65a-2100a3012b26")
-		(property "Reference" "R51"
-			(at 118.11 153.67 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 118.11 156.21 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 118.11 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 118.11 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 118.11 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "87e50b3b-d03a-4165-9605-717e9bb24981")
-		)
-		(pin "2"
-			(uuid "7b02ebbc-d20d-43a5-8ff1-480919a8df6c")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R51")
 					(unit 1)
 				)
 			)
@@ -3919,85 +3840,6 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "#PWR025")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 66.04 175.26 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "173b9bc8-3636-4123-8791-ce09bb548148")
-		(property "Reference" "R44"
-			(at 66.04 175.26 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 66.04 177.8 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 66.04 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 66.04 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d549c859-cfe9-40bd-852c-b8cef83a70b1")
-		)
-		(pin "2"
-			(uuid "f9501fbc-d994-4b5d-99e6-43557f7f5032")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R44")
 					(unit 1)
 				)
 			)
@@ -4316,164 +4158,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 118.11 113.03 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "29aa87d1-dea1-4f99-a61a-a5de785d1673")
-		(property "Reference" "R49"
-			(at 118.11 113.03 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 118.11 115.57 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 118.11 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 118.11 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 118.11 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "059161d6-e58a-4687-a7c7-54dee7167d7e")
-		)
-		(pin "2"
-			(uuid "677dce3a-1c11-4607-8aa2-a5d2dfe4dc9a")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R49")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 118.11 52.07 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2d93bd98-ff2f-4a37-8920-3cab7c3ff75e")
-		(property "Reference" "R46"
-			(at 118.11 52.07 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 118.11 54.61 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 118.11 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 118.11 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 118.11 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d1b513ce-2da9-4e71-9d38-01aeb8358746")
-		)
-		(pin "2"
-			(uuid "c517a9cf-0be5-465a-940f-0796ce15104d")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R46")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 111.76 63.5 0)
 		(unit 1)
@@ -4553,7 +4237,86 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 146.05 99.06 180)
+		(at 118.11 153.67 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "33a7f3aa-2df1-4c51-afdd-ad1b202926dc")
+		(property "Reference" "R45"
+			(at 118.11 153.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 118.11 156.21 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 118.11 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 118.11 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f4649d72-fb27-404e-855f-2829327f93b3")
+		)
+		(pin "2"
+			(uuid "314b5628-548f-4ec4-a6c1-db6031b076dc")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R45")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 146.05 99.06 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4563,7 +4326,7 @@
 		(dnp no)
 		(uuid "38878c71-2414-4f5f-9722-0c24e05fae9a")
 		(property "Reference" "R56"
-			(at 148.59 99.06 0)
+			(at 143.51 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4573,7 +4336,7 @@
 			)
 		)
 		(property "Value" "1.8k"
-			(at 142.24 99.06 0)
+			(at 149.86 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4632,85 +4395,6 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 66.04 153.67 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "39102a25-d85c-4003-98fd-13f261c5db1e")
-		(property "Reference" "R43"
-			(at 66.04 153.67 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 66.04 156.21 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 66.04 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 66.04 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a44eecef-1d01-46b2-a342-c45df456a4f4")
-		)
-		(pin "2"
-			(uuid "0ababf74-720e-4235-b568-30fd6d228b8d")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R43")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
 		(at 185.42 48.26 90)
 		(unit 1)
 		(body_style 1)
@@ -4730,7 +4414,7 @@
 				)
 			)
 		)
-		(property "Value" "165"
+		(property "Value" "150"
 			(at 185.42 45.72 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4740,7 +4424,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 185.42 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -4946,7 +4630,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 118.11 72.39 90)
+		(at 66.04 153.67 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4954,9 +4638,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "4db6a206-c1c9-4d25-9df5-317ce6f0af79")
-		(property "Reference" "R47"
-			(at 118.11 72.39 90)
+		(uuid "466f2ad0-01b0-4146-ba64-dceac37c600e")
+		(property "Reference" "R28"
+			(at 66.04 153.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4965,8 +4649,8 @@
 				)
 			)
 		)
-		(property "Value" "1k"
-			(at 118.11 74.93 90)
+		(property "Value" "470"
+			(at 66.04 156.21 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4975,8 +4659,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 118.11 72.39 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 66.04 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4987,7 +4671,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 118.11 72.39 0)
+			(at 66.04 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4998,7 +4682,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 118.11 72.39 0)
+			(at 66.04 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5009,15 +4693,94 @@
 			)
 		)
 		(pin "1"
-			(uuid "1bf929e6-3b21-449f-9ffe-7c33f843dad5")
+			(uuid "c169756b-4147-4dd3-8dbe-9d2e5f53ddd7")
 		)
 		(pin "2"
-			(uuid "0b4d1410-8de2-477e-9c2e-e147650e641b")
+			(uuid "c1782128-ad70-4d42-93f4-206f81e3badb")
 		)
 		(instances
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R47")
+					(reference "R28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 118.11 30.48 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4f326f97-aba6-4782-b9f4-111db6fcc8c3")
+		(property "Reference" "R39"
+			(at 118.11 30.48 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 118.11 33.02 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 118.11 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 118.11 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d4d5f7b4-fecf-4bd2-a0f0-bfa7b06af766")
+		)
+		(pin "2"
+			(uuid "5b4cb873-014e-43c8-bf6e-a1111c5df0e9")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R39")
 					(unit 1)
 				)
 			)
@@ -5179,7 +4942,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 66.04 30.48 90)
+		(at 66.04 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5198,7 +4961,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "470"
 			(at 66.04 33.02 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5208,7 +4971,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 66.04 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5277,7 +5040,7 @@
 				)
 			)
 		)
-		(property "Value" "470"
+		(property "Value" "150"
 			(at 185.42 53.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5287,7 +5050,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 185.42 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -5330,6 +5093,85 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "R61")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 118.11 72.39 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "606e7d8e-a1d0-4069-80a5-b9d45aa55e61")
+		(property "Reference" "R41"
+			(at 118.11 72.39 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 118.11 74.93 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 118.11 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 118.11 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "24128076-7c13-45a7-acb1-2b32447f56c7")
+		)
+		(pin "2"
+			(uuid "e2e4133d-2476-40c6-a64f-8689ca627873")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R41")
 					(unit 1)
 				)
 			)
@@ -5408,6 +5250,85 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 66.04 175.26 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "63cca5b4-4ee9-4c06-8871-66e54196f34d")
+		(property "Reference" "R38"
+			(at 66.04 175.26 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 66.04 177.8 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 66.04 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 66.04 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 66.04 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7c301bf1-9dc5-4372-8ebf-832f6143bc5f")
+		)
+		(pin "2"
+			(uuid "b936c06e-d10a-484d-a530-3d8537872010")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R38")
 					(unit 1)
 				)
 			)
@@ -5726,164 +5647,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 118.11 92.71 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6c4aa562-b4d5-4ada-a571-edf81ef13733")
-		(property "Reference" "R48"
-			(at 118.11 92.71 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 118.11 95.25 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 118.11 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 118.11 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 118.11 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "afddb9a5-4e1f-499f-8ef0-f43a698efe3a")
-		)
-		(pin "2"
-			(uuid "22bd3574-825d-405a-80d8-9db47c260971")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R48")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 66.04 72.39 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "74702aea-d9a4-49cc-979b-2e2dba92c58a")
-		(property "Reference" "R39"
-			(at 66.04 72.39 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 66.04 74.93 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 66.04 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 66.04 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4b86ce92-de15-4f16-89f9-6d751232c3d7")
-		)
-		(pin "2"
-			(uuid "22c519fd-245a-4478-8729-505748a6154e")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R39")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "228EMVARGBFR:228EMVARGBFR")
 		(at 72.39 46.99 0)
 		(unit 1)
@@ -6040,6 +5803,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 118.11 175.26 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7a514eea-5147-46dd-b3dc-5f90bd651e50")
+		(property "Reference" "R46"
+			(at 118.11 175.26 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 118.11 177.8 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 118.11 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 118.11 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d2b9a365-5fa4-4073-bc4f-dfb0dddd8191")
+		)
+		(pin "2"
+			(uuid "fd1d1bc8-076d-4b10-a72c-b7905d5b923b")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R46")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "228EMVARGBFR:228EMVARGBFR")
 		(at 72.39 25.4 0)
 		(unit 1)
@@ -6190,85 +6032,6 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "S1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 66.04 113.03 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "87727d7b-734a-4deb-8843-67817063c47b")
-		(property "Reference" "R41"
-			(at 66.04 113.03 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 66.04 115.57 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 66.04 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 66.04 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b7566efd-9a64-459a-81b0-fa03fd652969")
-		)
-		(pin "2"
-			(uuid "fa7a71ec-f872-41c7-a1d9-ff55f722d77b")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R41")
 					(unit 1)
 				)
 			)
@@ -6432,7 +6195,86 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 146.05 139.7 180)
+		(at 66.04 113.03 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "96a5c1ce-16c0-4cae-8ef2-0bd8d7c4ac82")
+		(property "Reference" "R26"
+			(at 66.04 113.03 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 66.04 115.57 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 66.04 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 66.04 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 66.04 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "526d34ee-fca6-4f7a-8703-d7aa7d713ac0")
+		)
+		(pin "2"
+			(uuid "07485fcd-9119-4b9d-b624-f546afed0bbe")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 146.05 139.7 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6442,7 +6284,7 @@
 		(dnp no)
 		(uuid "9715c42b-3d0c-4ad1-8741-1e79808622e4")
 		(property "Reference" "R58"
-			(at 148.59 139.7 0)
+			(at 143.51 139.7 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6452,7 +6294,7 @@
 			)
 		)
 		(property "Value" "1.8k"
-			(at 142.24 139.7 0)
+			(at 149.86 139.7 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6660,243 +6502,6 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "S7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 66.04 133.35 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9dc49421-4e97-4abf-9875-e1dbf436feb6")
-		(property "Reference" "R42"
-			(at 66.04 133.35 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 66.04 135.89 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 66.04 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 66.04 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "33b1b1b8-cfa8-4f92-b226-a891db44bdb4")
-		)
-		(pin "2"
-			(uuid "2d0e4710-c1e2-438c-862a-c7d8eb8fb17a")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R42")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 66.04 52.07 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a88c2e73-375c-42ff-8aba-01043d96d60e")
-		(property "Reference" "R38"
-			(at 66.04 52.07 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 66.04 54.61 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 66.04 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 66.04 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "983706cf-364b-47a9-a149-7f0f37e6e80f")
-		)
-		(pin "2"
-			(uuid "e2593ca1-cdc1-43dd-96e0-b386893ef95f")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R38")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 66.04 92.71 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ab20d6b8-dd8f-47c9-9ae1-8f1e19916521")
-		(property "Reference" "R40"
-			(at 66.04 92.71 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 66.04 95.25 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 66.04 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 66.04 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2b763ab1-9f5b-4731-a34d-99e194626468")
-		)
-		(pin "2"
-			(uuid "e8dcae5b-caed-4112-8512-3be36c857b45")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R40")
 					(unit 1)
 				)
 			)
@@ -7293,7 +6898,165 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 146.05 161.29 180)
+		(at 118.11 92.71 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cc7c6369-9f1f-4df3-9a19-d87e37a6ec46")
+		(property "Reference" "R42"
+			(at 118.11 92.71 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 118.11 95.25 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 118.11 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 118.11 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1d29f33e-14de-4180-b0f5-ea59dffc98b3")
+		)
+		(pin "2"
+			(uuid "094fa20d-1cc3-4da4-800d-ee76299f678e")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R42")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 118.11 113.03 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cd905c8d-8647-42a4-99be-f935768e67cf")
+		(property "Reference" "R43"
+			(at 118.11 113.03 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 118.11 115.57 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 118.11 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 118.11 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "351f925d-72a2-42f2-8cf1-1b70771d1703")
+		)
+		(pin "2"
+			(uuid "6deb5430-9f22-40d8-afcc-9b6f843f9de0")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R43")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 146.05 161.29 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7303,7 +7066,7 @@
 		(dnp no)
 		(uuid "d0968d9f-0420-406f-8414-9210fd5db006")
 		(property "Reference" "R59"
-			(at 148.59 161.29 0)
+			(at 143.51 161.29 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7313,7 +7076,7 @@
 			)
 		)
 		(property "Value" "1.8k"
-			(at 142.24 161.29 0)
+			(at 149.86 161.29 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7451,85 +7214,6 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 118.11 133.35 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d60397d5-accb-4e7f-bb9b-d64274654e26")
-		(property "Reference" "R50"
-			(at 118.11 133.35 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 118.11 135.89 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 118.11 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 118.11 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 118.11 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cb1bd5b4-a9ba-40a2-ad1a-23b97a6cce19")
-		)
-		(pin "2"
-			(uuid "ff21283b-29a9-407d-843b-66af66880ee7")
-		)
-		(instances
-			(project "hw-controller"
-				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
-					(reference "R50")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
 		(at 146.05 78.74 180)
 		(unit 1)
 		(body_style 1)
@@ -7602,6 +7286,164 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "R55")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 118.11 133.35 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "dfbb2d9d-05ca-4bdc-8296-532a88940728")
+		(property "Reference" "R44"
+			(at 118.11 133.35 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 118.11 135.89 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 118.11 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 118.11 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "15a4b039-a949-4c87-aabd-99b7a5d06d15")
+		)
+		(pin "2"
+			(uuid "4fb47252-273e-42f2-8caf-be2fb4e45d3a")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R44")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 66.04 133.35 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e68a2190-0070-423e-8dd3-87b29d5ded28")
+		(property "Reference" "R27"
+			(at 66.04 133.35 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 66.04 135.89 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 66.04 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 66.04 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 66.04 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "74e41442-2551-4e8b-90aa-146f5943b04b")
+		)
+		(pin "2"
+			(uuid "3baeb6b1-b0ab-4bb5-9693-45c7e87d2f11")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R27")
 					(unit 1)
 				)
 			)
@@ -7688,7 +7530,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 146.05 119.38 180)
+		(at 146.05 119.38 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7698,7 +7540,7 @@
 		(dnp no)
 		(uuid "eb34e593-ac87-44ff-b2cc-ad5d47441c2e")
 		(property "Reference" "R57"
-			(at 148.59 119.38 0)
+			(at 143.51 119.38 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7708,7 +7550,7 @@
 			)
 		)
 		(property "Value" "1.8k"
-			(at 142.24 119.38 0)
+			(at 149.86 119.38 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7760,6 +7602,85 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "R57")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 118.11 52.07 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f04bcd86-144c-4aaa-9d10-3ba40a536491")
+		(property "Reference" "R40"
+			(at 118.11 52.07 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 118.11 54.61 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 118.11 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 118.11 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 118.11 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ae106ddc-a622-4541-82e7-dcd1b5591a0d")
+		)
+		(pin "2"
+			(uuid "cc29c00a-18a1-4cc3-85fc-6b74acddb037")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R40")
 					(unit 1)
 				)
 			)
@@ -8175,6 +8096,85 @@
 			(project "hw-controller"
 				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
 					(reference "S6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 66.04 72.39 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f5f3e172-dc84-4c19-81fd-b77bb9440d76")
+		(property "Reference" "R24"
+			(at 66.04 72.39 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 66.04 69.85 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 66.04 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 66.04 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 66.04 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9b674151-77c3-4fac-9199-1010dfb910b3")
+		)
+		(pin "2"
+			(uuid "854ab8a5-5f5e-4302-b7d5-e50d764aeee6")
+		)
+		(instances
+			(project "hw-controller"
+				(path "/2010300f-418b-4275-8708-a3c593aa6f23"
+					(reference "R24")
 					(unit 1)
 				)
 			)

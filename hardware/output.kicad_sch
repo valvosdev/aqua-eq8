@@ -6056,7 +6056,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 124.46 90.17 90)
+		(at 124.46 90.17 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6076,7 +6076,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 124.46 87.63 90)
+			(at 124.46 92.71 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6085,8 +6085,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 124.46 91.948 90)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 124.46 88.392 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6394,7 +6394,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 124.46 102.87 90)
+		(at 124.46 102.87 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6414,7 +6414,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 124.46 100.33 90)
+			(at 124.46 105.41 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6423,8 +6423,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 124.46 104.648 90)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 124.46 101.092 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7764,7 +7764,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 124.46 41.148 90)
 			(hide yes)
 			(show_name no)
@@ -8149,7 +8149,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 124.46 66.548 90)
 			(hide yes)
 			(show_name no)
@@ -8752,7 +8752,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 124.46 53.848 90)
 			(hide yes)
 			(show_name no)
@@ -10162,7 +10162,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 124.46 79.248 90)
 			(hide yes)
 			(show_name no)
@@ -10394,7 +10394,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 124.46 115.57 90)
+		(at 124.46 115.57 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10414,7 +10414,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 124.46 113.03 90)
+			(at 124.46 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10423,8 +10423,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 124.46 117.348 90)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 124.46 113.792 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10690,7 +10690,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 124.46 28.448 90)
 			(hide yes)
 			(show_name no)
