@@ -25,8 +25,8 @@ typedef enum {
  * @brief Application Callback hooks for actions triggered by Button 9
  */
 typedef struct {
-    void (*on_ble_pairing_start)(void); /*!< Triggered on short press */
-    void (*on_factory_reset)(void);     /*!< Triggered after 10-second hold */
+    void (*on_short_press)(void);               /*!< Triggered on short press */
+    void (*on_very_very_long_press)(void);     /*!< Triggered after 10-second hold */
 } device_status_callbacks_t;
 
 /**

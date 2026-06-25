@@ -1,3 +1,4 @@
+#include <time.h>
 #include "esp_log.h"
 #include "esp_system.h"
 #include "nvs_flash.h"
@@ -14,6 +15,9 @@
 #include "adc_buttons.h"
 #include "zone_controller.h"
 #include "device_status.h"
+#include "device_config.h"
+#include "device_mqtt.h"
+#include "device_schedule.h"
 
 #define BTNS_PIN GPIO_NUM_0
 #define LATCH GPIO_NUM_5
@@ -26,7 +30,7 @@
 #define STATUS_BLUE GPIO_NUM_4
 
 #define PROV_POP "12345678"
-#define PROV_PREFIX "AQUA_SECURE_"
+#define PROV_PREFIX "VALVOS_AQUA8_"
 
 static const char *APP_TAG = "app_main";
 static zone_controller_handle_t global_zone_engine = NULL;
@@ -34,8 +38,7 @@ static device_status_handle_t global_status_engine = NULL;
 
 // --- Pre-computed Cryptographic SRP6a Security 2 tokens for PIN "12345678" ---
 static const char sec2_salt[] = {
-    0xd2, 0xb4, 0xeb, 0xd0, 0x44, 0x6c, 0x03, 0x78, 0x24, 0x93, 0x21, 0x53, 0x33, 0xf3, 0x07, 0x61
-};
+    0xd2, 0xb4, 0xeb, 0xd0, 0x44, 0x6c, 0x03, 0x78, 0x24, 0x93, 0x21, 0x53, 0x33, 0xf3, 0x07, 0x61};
 
 static const char sec2_verifier[] = {
     0x0c, 0xc4, 0xfd, 0x46, 0x5c, 0xb8, 0x0f, 0x0d, 0x37, 0x6e, 0x5e, 0xcb, 0x1f, 0x66, 0x2d, 0x05,
@@ -61,8 +64,7 @@ static const char sec2_verifier[] = {
     0xde, 0xcf, 0xc0, 0xbc, 0xc2, 0xaa, 0x2f, 0x98, 0x04, 0xa7, 0x63, 0xf7, 0xdb, 0x75, 0x03, 0xd4,
     0x4b, 0x55, 0x31, 0x5d, 0x97, 0x3b, 0x36, 0x94, 0x07, 0x3a, 0xb5, 0xb9, 0xcf, 0x76, 0x3f, 0x6a,
     0xe3, 0x0e, 0xb3, 0x40, 0xff, 0x40, 0x07, 0x94, 0xc3, 0x44, 0x9f, 0x28, 0x7b, 0x26, 0xbc, 0x16,
-    0x4b, 0x76, 0x67, 0x25, 0xec, 0xbb, 0x38, 0x18, 0x17, 0x8e, 0x5f, 0xb6, 0x4e, 0x28, 0xe8, 0x30
-};
+    0x4b, 0x76, 0x67, 0x25, 0xec, 0xbb, 0x38, 0x18, 0x17, 0x8e, 0x5f, 0xb6, 0x4e, 0x28, 0xe8, 0x30};
 
 static void wifi_and_prov_event_handler(void *arg, esp_event_base_t event_base, int32_t event_id, void *event_data)
 {
@@ -101,8 +103,14 @@ static void wifi_and_prov_event_handler(void *arg, esp_event_base_t event_base, 
             esp_wifi_connect();
             break;
         case WIFI_EVENT_STA_DISCONNECTED:
-            ESP_LOGW(APP_TAG, "Wi-Fi link dropped. Reconnecting automatically...");
+            wifi_event_sta_disconnected_t *disconn = (wifi_event_sta_disconnected_t *)event_data;
+            ESP_LOGE(APP_TAG, "Wi-Fi disconnected. Reason code: %d", disconn->reason);
+            // Change Status LED to show error/reconnecting state
             device_status_set_state(global_status_engine, STATUS_STATE_WIFI_CONNECTED, false);
+            // Prevent spamming the router: Wait out a 3-second recovery backoff delay
+            vTaskDelay(pdMS_TO_TICKS(3000));
+
+            // Reconnect safely
             esp_wifi_connect();
             break;
         default:
@@ -116,22 +124,80 @@ static void wifi_and_prov_event_handler(void *arg, esp_event_base_t event_base, 
 
         device_status_set_state(global_status_engine, STATUS_STATE_BOOTING, false);
         device_status_set_state(global_status_engine, STATUS_STATE_WIFI_CONNECTED, true);
+        device_schedule_sync_network_time();
+        device_runtime_config_t active_net_conf;
+        if (device_config_load_from_nvs(&active_net_conf) == ESP_OK)
+        {
+
+            // Pass the NVS variables directly to your MQTT startup component
+            // Instead of a hardcoded placeholder, pass 'active_net_conf.mqtt_url'
+            ESP_LOGI(APP_TAG, "Booting MQTT engine pointing to: %s", active_net_conf.mqtt_url);
+
+            // Call your custom MQTT initialization method
+            ESP_ERROR_CHECK(device_mqtt_init(global_zone_engine));
+        }
+        else
+        {
+            ESP_LOGE(APP_TAG, "Cannot start MQTT. No configuration profile found in NVS memory partitions.");
+        }
     }
 }
 
-void sprinkler_on_logger(uint8_t zone, void *ctx)
+void sprinkler_on_handler(uint8_t zone, void *ctx)
 {
-    ESP_LOGW(APP_TAG, ">>> TRIAC ENGAGED: Sprinkler valve %d open! <<<", zone);
+    // The internal engine layer is 0-indexed (0-7).
+    // Shift to 1-based index (1-8) for user readability and MQTT formatting alignment.
+    uint8_t standard_zone = zone + 1;
+    ESP_LOGW(APP_TAG, ">>> TRIAC ENGAGED: Sprinkler valve %d open! <<<", standard_zone);
+
+    // Send visual state update packet out over the network automatically
+    device_mqtt_publish_status("zone_on", standard_zone);
 }
 
-void sprinkler_off_logger(uint8_t zone, void *ctx)
+void sprinkler_off_handler(uint8_t zone, void *ctx)
 {
-    ESP_LOGI(APP_TAG, ">>> TRIAC DISENGAGED: Sprinkler valve %d closed.", zone);
+    uint8_t standard_zone = zone + 1;
+    ESP_LOGI(APP_TAG, ">>> TRIAC DISENGAGED: Sprinkler valve %d closed.", standard_zone);
+
+    device_mqtt_publish_status("zone_off", standard_zone);
 }
 
-void master_assigned_logger(uint8_t zone, void *ctx)
+void master_assigned_handler(uint8_t zone, void *ctx)
 {
-    ESP_LOGE(APP_TAG, "!!! Zone %d took Master control !!!", zone);
+    uint8_t human_zone = zone;
+    ESP_LOGE(APP_TAG, "!!! Zone %d took Master control !!!", human_zone);
+
+    device_runtime_config_t current_conf;
+
+    // Attempt to load from NVS. If it fails because it's empty, initialize with defaults!
+    esp_err_t err = device_config_load_from_nvs(&current_conf);
+    if (err == ESP_ERR_NVS_NOT_FOUND)
+    {
+        ESP_LOGW(APP_TAG, "NVS space empty. Initializing clean default configuration profile layout...");
+        memset(&current_conf, 0, sizeof(device_runtime_config_t));
+        // Assign basic default string bounds safely to prevent pointer corruption
+        strcpy(current_conf.tenant_id, "default_tenant");
+        strcpy(current_conf.device_id, "default_device");
+        strcpy(current_conf.mqtt_url, "mqtt://localhost");
+        current_conf.master_delay_sec = 5; // Default 5
+    }
+
+    // Always apply the new master channel change
+    current_conf.master_ch = (int8_t)human_zone;
+    current_conf.master_delay_sec = 5; // Default 5
+    // Commit to flash partition
+    err = device_config_save_to_nvs(&current_conf);
+    if (err == ESP_OK)
+    {
+        ESP_LOGI(APP_TAG, "NVS Storage Updated: Master Valve saved as Channel %d.", human_zone);
+    }
+    else
+    {
+        ESP_LOGE(APP_TAG, "Failed to preserve master configuration into flash memory.");
+    }
+
+    // Broadcast the status update back to the network dashboard
+    device_mqtt_publish_status("master_update", human_zone);
 }
 
 void app_button_bridge_handler(uint8_t button_index, adc_button_event_t event, void *user_ctx)
@@ -140,6 +206,18 @@ void app_button_bridge_handler(uint8_t button_index, adc_button_event_t event, v
     if (engine)
     {
         zone_controller_handle_button_event(engine, button_index, event);
+    }
+}
+
+void start_first_schedule(void) {
+    // SHORT PRESS ON CONTROL/STATUS BUTTON TRIGGERS FIRST SCHEDULE PROFILE RUN
+    ESP_LOGW(APP_TAG, "Control button short-pressed. Running the first schedule sequence sequence...");
+    
+    // Executes the default 7-minute factory sequence automatically
+    esp_err_t err = device_schedule_start_by_index(0); 
+    if (err == ESP_ERR_INVALID_STATE) {
+        ESP_LOGE(APP_TAG, "A sequence is already active. Stopping execution task.");
+        device_schedule_stop_current(); // Toggles off if double clicked
     }
 }
 
@@ -157,7 +235,7 @@ void pairing_mode_started(void)
     {
         ESP_LOGW(APP_TAG, "Re-launching Secure BLE Portal...");
 
-         network_prov_security2_params_t sec2_params = {
+        network_prov_security2_params_t sec2_params = {
             .salt = sec2_salt,
             .salt_len = sizeof(sec2_salt),
             .verifier = sec2_verifier,
@@ -176,10 +254,25 @@ void factory_reset_wiping_sequence(void)
     esp_restart();
 }
 
+esp_err_t custom_config_prov_handler(uint32_t session_id, const uint8_t *in_data, ssize_t in_len,
+                                     uint8_t **out_data, ssize_t *out_len, void *priv_data)
+{
+    // One line completely handles validation, parsing, safety checks, and saving to flash memory
+    esp_err_t err = device_config_update_from_json((const char *)in_data, in_len);
+    if (err != ESP_OK)
+        return ESP_FAIL;
+
+    *out_data = (uint8_t *)strdup("{\"status\":\"config_applied\"}");
+    *out_len = strlen((char *)*out_data);
+    return ESP_OK;
+}
+
 void app_main(void)
 {
+
     shift_reg_handle_t sr_device = NULL;
     adc_buttons_handle_t btn_device = NULL;
+    device_runtime_config_t system_conf;
     esp_err_t err;
 
     err = nvs_flash_init();
@@ -203,9 +296,9 @@ void app_main(void)
     zone_controller_config_t zone_cfg = {
         .sr_handle = sr_device,
         .btn_handle = NULL,
-        .on_zone_activated = sprinkler_on_logger,
-        .on_zone_deactivated = sprinkler_off_logger,
-        .on_master_assigned = master_assigned_logger,
+        .on_zone_activated = sprinkler_on_handler,
+        .on_zone_deactivated = sprinkler_off_handler,
+        .on_master_assigned = master_assigned_handler,
         .user_ctx = NULL};
     ESP_ERROR_CHECK(zone_controller_init(&zone_cfg, &global_zone_engine));
 
@@ -225,9 +318,31 @@ void app_main(void)
         .pin_green = STATUS_GREEN,
         .pin_blue = STATUS_BLUE,
         .callbacks = {
-            .on_ble_pairing_start = pairing_mode_started,
-            .on_factory_reset = factory_reset_wiping_sequence}};
+            .on_short_press = start_first_schedule,
+            .on_very_very_long_press = factory_reset_wiping_sequence}};
     ESP_ERROR_CHECK(device_status_init(&status_cfg, &global_status_engine));
+
+    
+    ESP_ERROR_CHECK(device_schedule_init(global_zone_engine));
+
+    // CALL THE COMPONENT METHOD TO READ FLASH HERE:
+    if (device_config_load_from_nvs(&system_conf) == ESP_OK)
+    {
+
+        // Set your local system time-keeping zone profile
+        if (strlen(system_conf.timezone) > 0)
+        {
+            setenv("TZ", system_conf.timezone, 1);
+            tzset();
+        }
+
+        // Immediately apply NVS rules directly to the operational engine
+        zone_controller_set_master(global_zone_engine, system_conf.master_ch);
+        zone_controller_set_master_delay(global_zone_engine, system_conf.master_delay_sec);
+
+        ESP_LOGI(APP_TAG, "NVS Config applied: Master CH=%d, Delay=%lu sec",
+                 system_conf.master_ch, system_conf.master_delay_sec);
+    }
 
     esp_netif_create_default_wifi_sta();
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
@@ -238,12 +353,35 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &wifi_and_prov_event_handler, NULL));
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+
+    wifi_config_t current_wifi_cfg;
+    if (esp_wifi_get_config(WIFI_IF_STA, &current_wifi_cfg) == ESP_OK) {
+        
+        // 1. Set the minimum security threshold to standard WPA2
+        current_wifi_cfg.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
+        
+        // 2. CRITICAL FIX FOR MIXED MODE: Tell the ESP32-C3 to explicitly allow 
+        // WPA3-SAE transition capability if the AP offers it.
+        current_wifi_cfg.sta.sae_pwe_h2e = WPA3_SAE_PWE_BOTH; 
+        
+        // 3. Scan all available channels uniformly
+        current_wifi_cfg.sta.scan_method = WIFI_ALL_CHANNEL_SCAN;
+        current_wifi_cfg.sta.sort_method = WIFI_CONNECT_AP_BY_SIGNAL;
+        
+        // 4. Force PMF (Protected Management Frames) to Optional/Capable
+        current_wifi_cfg.sta.pmf_cfg.capable = true;
+        current_wifi_cfg.sta.pmf_cfg.required = false;
+        
+        ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &current_wifi_cfg));
+        ESP_LOGI(APP_TAG, "WPA2/WPA3 Mixed Transition Mode profile successfully applied.");
+    }
+
     ESP_ERROR_CHECK(esp_wifi_start());
 
     network_prov_mgr_config_t prov_config = {
         .scheme = network_prov_scheme_ble,
         .scheme_event_handler = {
-            .event_cb = network_prov_scheme_ble_event_cb_free_btdm,
+            .event_cb = network_prov_scheme_ble_event_cb_free_ble,
             .user_data = NULL}};
     ESP_ERROR_CHECK(network_prov_mgr_init(prov_config));
 
@@ -266,8 +404,10 @@ void app_main(void)
             .verifier_len = sizeof(sec2_verifier),
         };
 
+        ESP_ERROR_CHECK(network_prov_mgr_endpoint_create("custom-config"));
         // Start provisioning using standard Security 2 authentication token
         ESP_ERROR_CHECK(network_prov_mgr_start_provisioning(NETWORK_PROV_SECURITY_2, (const void *)&sec2_params, custom_prov_name, NULL));
+        ESP_ERROR_CHECK(network_prov_mgr_endpoint_register("custom-config", custom_config_prov_handler, NULL));
     }
     else
     {
