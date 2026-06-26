@@ -4,6 +4,7 @@
 .DS_Store
 .vscode
 
+certs 
 
 # ----------- ESP-IDF Build Artifacts -----------
 build/

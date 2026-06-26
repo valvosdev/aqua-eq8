@@ -19,7 +19,7 @@ serviceAccount:
 
 service:
   type: NodePort
-  externalTrafficPolicy: Local
+  externalTrafficPolicy: Cluster 
   annotations: {}
     # metallb.universe.tf/allow-shared-ip: pi-hole
 
@@ -56,28 +56,30 @@ config: |
 
   # MQTTS (Encrypted or standard traffic listener)
   listener 8883 0.0.0.0
- 
-#  require_certificate true
-#  use_identity_as_username true
-  
-# cafile /mosquitto/config/certs/valvos-dev-ca.crt
-# certfile /mosquitto/config/certs/mqtt-server-crt.crt
-# keyfile /mosquitto/config/certs/mqtt-server-crt.key
 
+  cafile /mosquitto/config/certs/valvos-dev-ca.crt
+  certfile /mosquitto/config/certs/server-crt.crt
+  keyfile /mosquitto/config/certs/server-crt.key
+  require_certificate true
+  use_identity_as_username true
   
-# ## Additional volumes.
-# extraVolumes: 
-#   - name: mqtt-tls-crt
-#     csi:
-#       # driver: secrets-store.csi.k8s.io
-#       readOnly: true
-#       volumeAttributes:
-#         secretProviderClass: mqtt-crt-spc  
+## Additional volumes.
+extraVolumes: 
+  - name: mqtt-tls-crt
+    secret:
+      secretName: mqtt-tls-certs
+      items:
+        - key: valvos-dev-ca.crt
+          path: valvos-dev-ca.crt
+        - key: server-crt.crt
+          path: server-crt.crt
+        - key: server-crt.key
+          path: server-crt.key
 # # ## Additional volumeMounts to the main container.
-# extraVolumeMounts: 
-#   - name: mqtt-tls-crt
-#     mountPath: /mosquitto/config/certs
-#     readOnly: true
+extraVolumeMounts: 
+  - name: mqtt-tls-crt
+    mountPath: /mosquitto/config/certs
+    readOnly: true
 
 monitoring:
   podMonitor:
