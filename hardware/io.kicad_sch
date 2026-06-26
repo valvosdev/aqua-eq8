@@ -3220,7 +3220,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 243.84 50.8 90)
+		(at 243.84 50.8 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)

@@ -7566,7 +7566,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 158.75 72.39 90)
+		(at 158.75 72.39 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7586,7 +7586,7 @@
 			)
 		)
 		(property "Value" "330"
-			(at 158.75 69.85 90)
+			(at 158.75 74.93 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7596,7 +7596,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 158.75 74.168 90)
+			(at 158.75 70.612 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9712,7 +9712,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 158.75 46.99 90)
+		(at 158.75 46.99 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9732,7 +9732,7 @@
 			)
 		)
 		(property "Value" "330"
-			(at 158.75 44.45 90)
+			(at 158.75 49.53 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9742,7 +9742,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 158.75 48.768 90)
+			(at 158.75 45.212 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10831,7 +10831,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 158.75 97.79 90)
+		(at 158.75 97.79 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10851,7 +10851,7 @@
 			)
 		)
 		(property "Value" "330"
-			(at 158.75 95.25 90)
+			(at 158.75 100.33 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10861,7 +10861,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 158.75 99.568 90)
+			(at 158.75 96.012 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
