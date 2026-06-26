@@ -1,0 +1,99 @@
+replicaCount: 1
+strategyType: Recreate
+
+image:
+  repository: eclipse-mosquitto
+  tag: 2.0.18
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+service:
+  type: NodePort
+  externalTrafficPolicy: Local
+  annotations: {}
+    # metallb.universe.tf/allow-shared-ip: pi-hole
+
+ports:
+  mqtt:
+    port: 1883
+    # sets consistent nodePort, required to set service.type=NodePort
+    # nodePort: 31883
+    protocol: TCP
+  mqtts:
+    port: 8883
+    nodePort: 31883
+    protocol: TCP
+  websocket:
+    port: 9001
+    protocol: TCP
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  existingClaim: ""
+  mountPath: /mosquitto/data
+
+  size: 1Gi
+
+
+existingConfigMap: ""
+config: |
+  persistence true
+  persistence_location /mosquitto/data/
+  # WebSockets
+  listener 9001 0.0.0.0
+  protocol websockets
+
+  # MQTTS (Encrypted or standard traffic listener)
+  listener 8883 0.0.0.0
+ 
+#  require_certificate true
+#  use_identity_as_username true
+  
+# cafile /mosquitto/config/certs/valvos-dev-ca.crt
+# certfile /mosquitto/config/certs/mqtt-server-crt.crt
+# keyfile /mosquitto/config/certs/mqtt-server-crt.key
+
+  
+# ## Additional volumes.
+# extraVolumes: 
+#   - name: mqtt-tls-crt
+#     csi:
+#       # driver: secrets-store.csi.k8s.io
+#       readOnly: true
+#       volumeAttributes:
+#         secretProviderClass: mqtt-crt-spc  
+# # ## Additional volumeMounts to the main container.
+# extraVolumeMounts: 
+#   - name: mqtt-tls-crt
+#     mountPath: /mosquitto/config/certs
+#     readOnly: true
+
+monitoring:
+  podMonitor:
+    enabled: false
+  sidecar:
+    enabled: false
+    port: 9234
+    # nodePort: 32234
+    image:
+      repository: nolte/mosquitto-exporter
+      tag: v0.6.3
+      pullPolicy: IfNotPresent
+    resources:
+      limits:
+        cpu: 300m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 64Mi
