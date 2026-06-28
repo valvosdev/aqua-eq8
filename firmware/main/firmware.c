@@ -8,6 +8,7 @@
 // ESP-IDF v6 Unified Provisioning Headers
 #include "network_provisioning/manager.h"
 #include "network_provisioning/scheme_ble.h"
+#include "esp_sntp.h"  
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -65,6 +66,20 @@ static const char sec2_verifier[] = {
     0x4b, 0x55, 0x31, 0x5d, 0x97, 0x3b, 0x36, 0x94, 0x07, 0x3a, 0xb5, 0xb9, 0xcf, 0x76, 0x3f, 0x6a,
     0xe3, 0x0e, 0xb3, 0x40, 0xff, 0x40, 0x07, 0x94, 0xc3, 0x44, 0x9f, 0x28, 0x7b, 0x26, 0xbc, 0x16,
     0x4b, 0x76, 0x67, 0x25, 0xec, 0xbb, 0x38, 0x18, 0x17, 0x8e, 0x5f, 0xb6, 0x4e, 0x28, 0xe8, 0x30};
+
+
+static void on_time_synchronized(struct timeval *tv)
+{
+    ESP_LOGW("app_main", "Time synchronization validated via SNTP cluster.");
+    
+    device_runtime_config_t runtime_conf;
+    if (device_config_load_from_nvs(&runtime_conf) == ESP_OK) {
+        // Safe linear boot dependency injection
+        ESP_ERROR_CHECK(device_mqtt_start(&runtime_conf, global_zone_engine));
+    } else {
+        ESP_LOGE("app_main", "Critical: NVS config corrupt. Cannot mount secure MQTT layer.");
+    }
+}
 
 static void wifi_and_prov_event_handler(void *arg, esp_event_base_t event_base, int32_t event_id, void *event_data)
 {
@@ -124,22 +139,13 @@ static void wifi_and_prov_event_handler(void *arg, esp_event_base_t event_base, 
 
         device_status_set_state(global_status_engine, STATUS_STATE_BOOTING, false);
         device_status_set_state(global_status_engine, STATUS_STATE_WIFI_CONNECTED, true);
-        device_schedule_sync_network_time();
-        device_runtime_config_t active_net_conf;
-        if (device_config_load_from_nvs(&active_net_conf) == ESP_OK)
-        {
-
-            // Pass the NVS variables directly to your MQTT startup component
-            // Instead of a hardcoded placeholder, pass 'active_net_conf.mqtt_url'
-            ESP_LOGI(APP_TAG, "Booting MQTT engine pointing to: %s", active_net_conf.mqtt_url);
-
-            // Call your custom MQTT initialization method
-            ESP_ERROR_CHECK(device_mqtt_init(global_zone_engine));
-        }
-        else
-        {
-            ESP_LOGE(APP_TAG, "Cannot start MQTT. No configuration profile found in NVS memory partitions.");
-        }
+        
+        // Fire up background clock manager routines 
+        esp_sntp_setoperatingmode(SNTP_OPMODE_POLL);
+        esp_sntp_setservername(0, "pool.ntp.org");
+        sntp_set_time_sync_notification_cb(on_time_synchronized);
+        esp_sntp_init();
+    
     }
 }
 
@@ -176,9 +182,9 @@ void master_assigned_handler(uint8_t zone, void *ctx)
         ESP_LOGW(APP_TAG, "NVS space empty. Initializing clean default configuration profile layout...");
         memset(&current_conf, 0, sizeof(device_runtime_config_t));
         // Assign basic default string bounds safely to prevent pointer corruption
-        strcpy(current_conf.tenant_id, "default_tenant");
-        strcpy(current_conf.device_id, "default_device");
-        strcpy(current_conf.mqtt_url, "mqtt://localhost");
+        strcpy(current_conf.tenant_id, "0001000");
+        strcpy(current_conf.device_id, "1001001");
+        strcpy(current_conf.mqtt_url, "mqtts://10.30.10.30:8883");
         current_conf.master_delay_sec = 5; // Default 5
     }
 
@@ -266,6 +272,7 @@ esp_err_t custom_config_prov_handler(uint32_t session_id, const uint8_t *in_data
     *out_len = strlen((char *)*out_data);
     return ESP_OK;
 }
+
 
 void app_main(void)
 {

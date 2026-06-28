@@ -39,11 +39,6 @@ typedef struct {
 esp_err_t device_schedule_init(zone_controller_handle_t zone_engine);
 
 /**
- * @brief Triggers the background network time protocol sync task.
- */
-void device_schedule_sync_network_time(void);
-
-/**
  * @brief Starts execution of a specific schedule profile by its array index.
  * @param index 0 to (MAX_SCHEDULES - 1)
  */

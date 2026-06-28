@@ -24,7 +24,7 @@ kubectl create secret generic mqtt-tls-certs \
 Replace the IP address with yours
 
 ```
-mosquitto_sub -h 10.30.10.30 -p 8883 -t "test/topic" \
+mosquitto_sub -h 10.30.10.30 -p 8883 -t "tenant/0001000/device/1001001/zone/" \
   --cafile ./certs/valvos-dev-ca.crt \
   --cert ./certs/client.crt \
   --key ./certs/client.key \
@@ -41,3 +41,36 @@ Publish a message
   --key ./certs/client.key \
   --insecure
   ```
+
+
+mosquitto_pub -h 10.30.10.30 -p 8883 -t "tenant/0001000/device/1001003/zone/2/set" -d  \
+  -m "1" \
+  --cafile ./certs/valvos-dev-ca.crt \
+  --cert ./certs/client.crt \
+  --key ./certs/client.key \
+  --insecure
+
+mosquitto_pub -h 10.30.10.30 -p 8883 -t "tenant/0001000/device/1001003/master/set" \
+  -m "0" \
+  --cafile ./certs/valvos-dev-ca.crt \
+  --cert ./certs/client.crt \
+  --key ./certs/client.key \
+  --insecure
+
+ mosquitto_pub -h 10.30.10.30 -p 8883 -t "tenant/0001000/device/1001001/schedule/0/set" \
+  -m '{"name":"Daytime Run","is_active":true,"steps":[{"zone":1,"time":420},{"zone":2,"time":600},{"zone":3,"time":420},{"zone":4,"time":600}]}' \
+  --cafile ./certs/valvos-dev-ca.crt \
+  --cert ./certs/client.crt \
+  --key ./certs/client.key \
+  --insecure
+
+
+  mosquitto_pub -h 10.30.10.30 -p 8883 -t "tenant/0001000/device/1001001/schedule/1/set" \
+  -m '{"name":"Quick Flush","is_active":true,"interval":10,"steps":[{"zone":1,"time":30},{"zone":2,"time":30},{"zone":3,"time":30},{"zone":4,"time":30}]}' \
+  --cafile ./certs/valvos-dev-ca.crt \
+  --cert ./certs/client.crt \
+  --key ./certs/client.key \
+  --insecure
+
+  mosquitto_pub -h 10.30.10.30 -p 8883 -t "tenant/0001000/device/1001001/schedule/1/start" -m "" \
+  --cafile ./certs/valvos-dev-ca.crt --cert ./certs/client.crt --key ./certs/client.key --insecure

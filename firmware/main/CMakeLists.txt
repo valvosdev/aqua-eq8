@@ -11,5 +11,6 @@ idf_component_register(SRCS "firmware.c"
                            nvs_flash 
                            network_provisioning 
                            esp_wifi
-                           cjson            
+                           cjson     
+                           lwip       
 )
