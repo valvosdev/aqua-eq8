@@ -16,7 +16,8 @@ sdkconfig.ci
 .espressif/
 managed_components/
 dependencies.lock
-
+*gerber*
+*bom.xlsx*
 
 # Temporary files
 *.000
